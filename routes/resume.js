@@ -48,7 +48,7 @@ router.post('/import', function(req, res, next) {
     ResumeParser.parseResumeFileReturn(req.files.resume, null) // input file, output dir
     .then(file => {
         //console.log(file)
-        axios.get('http://host.docker.internal:8000/?fileName=' + fullPath)
+        axios.get('http://localhost:8000/?fileName=' + fullPath)
         .then(function (response) {
             // handle success
             parsed={}
@@ -57,7 +57,8 @@ router.post('/import', function(req, res, next) {
             console.log(parsed);
         })
         .catch(function (error) {
-            // handle error
+            console.log(file)
+      return(file)
             console.log(error);
         })
         .then(function () {
@@ -67,7 +68,8 @@ router.post('/import', function(req, res, next) {
 )
     .catch(error => {
       console.error(error);
-      return()
+      console.log(file)
+      return(file)
     })
       
   
