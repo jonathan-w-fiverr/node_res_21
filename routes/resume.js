@@ -75,6 +75,7 @@ router.post('/import', function(req, res, next) {
             })
             .catch(function (error) {
                 console.log(error)
+                res.send(file)
                 return(file)
                 
             })
@@ -86,16 +87,12 @@ router.post('/import', function(req, res, next) {
     .catch(error => {
       console.error(error);
       console.log(file)
+      res.send(file)
       return(file)
     })
-      
+
   
-  
-  
-  
-  
-  
-    res.send(file);
+    //res.send(file);
 });
 
 module.exports = router;
