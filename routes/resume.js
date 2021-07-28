@@ -47,6 +47,7 @@ router.get('/import', function(req, res, next) {
 router.post('/import', function(req, res, next) {
     //let fileName = req.query.file;
     console.log(req.files.resume)
+    res.header("Access-Control-Allow-Origin", "*");
     let fullPath = req.files.resume.tempFilePath
     ResumeParser.parseResumeFileReturn(req.files.resume, null) // input file, output dir
     .then(file => {
