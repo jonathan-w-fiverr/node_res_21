@@ -8,7 +8,7 @@ const axios = require('axios').default;
 const FormData = require('form-data');
 /* GET home page. */
 const hostOS = process.platform
-const hostToUse = hostOS === 'darwin'?  'host.docker.internal' : 'localhost'
+const hostToUse = hostOS === 'darwin'?  'localhost' : 'localhost'
 router.get('/import', function(req, res, next) {
     let fileName = req.query.file;
     let fullPath = path.resolve(__dirname, '../resumes/import/' + fileName)
@@ -73,6 +73,7 @@ router.post('/import', function(req, res, next) {
                 parsed.node = file
                 parsed.py = response.data
                 console.log(parsed);
+                res.send(parsed)
             })
             .catch(function (error) {
                 console.log(error)
