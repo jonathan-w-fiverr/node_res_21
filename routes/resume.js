@@ -66,7 +66,7 @@ router.post('/import', function(req, res, next) {
           //};
             //axios.post('http://' + hostToUse + ':8000/import', form, request_config )
         
-                axios.get('http://' + hostToUse + ':8000/?fileName=/?fileName=' + fullPath)
+                axios.get('http://' + hostToUse + ':8000/?fileName=' + fullPath)
             .then(function (response) {
                 // handle success
                 parsed={}
