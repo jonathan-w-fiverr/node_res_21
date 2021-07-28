@@ -95,7 +95,7 @@ router.post('/import', function(req, res, next) {
   
   
   
-    res.render('index', { title: 'Express' });
+    res.send(file);
 });
 
 module.exports = router;
