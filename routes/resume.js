@@ -43,6 +43,11 @@ router.get('/import', function(req, res, next) {
     res.render('index', { title: 'Express' });
 });
 
+router.options('/import', function (req,res,next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send()
+})
+
 /* GET home page. */
 router.post('/import', function(req, res, next) {
     //let fileName = req.query.file;
